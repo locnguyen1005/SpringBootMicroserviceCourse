@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet to create the 'lession_account' table -->
+    <changeSet id="create-lession-account-table" author="your_name">
+        <!-- Check if the 'lession_account' table does not exist -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="lession_account"/>
+            </not>
+        </preConditions>
+        <!-- Create the 'lession_account' table -->
+        <createTable tableName="lession_account">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="lessionId" type="BIGINT"/>
+            <column name="accountId" type="BIGINT"/>
+            <column name="score" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

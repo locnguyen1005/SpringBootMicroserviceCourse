@@ -1,0 +1,48 @@
+server:
+  port: 9000
+  
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: Account-Service
+          uri: http://localhost:9006
+          predicates:
+            - Path=/Account/**
+#          filters:
+#           - AuthenticationFilter
+
+        - id: Product-Service
+          uri: http://localhost:8888
+          predicates:
+            - Path=/product/**
+            
+        - id: Product-Account-Service
+          uri: http://localhost:9001
+          predicates:
+            - Path=/ProductAccount/** 
+            
+        - id: Lession-Service
+          uri: http://localhost:9003
+          predicates:
+            - Path=/Lession/** 
+            
+        - id: Answer-Service
+          uri: http://localhost:8889
+          predicates:
+            - Path=/Answer/**
+            
+        - id: Payment-Service
+          uri: http://localhost:9002
+          predicates:
+            - Path=/api/v1/** 
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"

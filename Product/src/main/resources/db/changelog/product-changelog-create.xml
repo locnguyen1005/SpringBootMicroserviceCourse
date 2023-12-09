@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="create-table-product" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="table product already exists">
+			<not>
+                <tableExists tableName="product" />
+            </not>
+		</preConditions>
+		<createTable tableName="product">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+        </createTable>
+	</changeSet>
+	<changeSet id="add-colume-name-product" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume name already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="nameproduct" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="nameproduct" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+		</addColumn>
+	</changeSet>
+	<changeSet id="add-colume-accountId-product" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume accountId already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="accountId" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="accountId" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+		</addColumn>
+	</changeSet>
+	<changeSet id="add-colume-price-product" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume price already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="price" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="price" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="add-colume-folder" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume folder already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="folder" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="folder" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+		</addColumn>
+	</changeSet>
+	<changeSet id="add-colume-description" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume description already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="description" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="description" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+		</addColumn>
+	</changeSet>
+	<changeSet id="add-colume-category-product" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume category already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="category" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="category" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+		</addColumn>
+	</changeSet>
+	<changeSet id="add-colume-image-product" author="product" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="colume image already exists in table product">
+			<not>
+				<columnExists tableName="product" columnName="image" />
+			</not>
+		</preConditions>
+		<addColumn tableName="product">
+			<column name="image" type="VARCHAR(255)">
+                <constraints nullable="true" />	
+            </column>
+		</addColumn>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet to create the 'quiz' table -->
+    <changeSet id="create-quiz-table" author="quiz">
+        <!-- Check if the 'quiz' table does not exist -->
+        <preConditions onFail="CONTINUE">
+            <not>
+                <tableExists tableName="quiz"/>
+            </not>
+        </preConditions>
+        <!-- Create the 'quiz' table -->
+        <createTable tableName="quiz">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            
+            <column name="lessionid" type="BIGINT"/>
+            <column name="productid" type="BIGINT"/>
+            <column name="question" type="VARCHAR(255)"/>
+            <column name="choiceone" type="VARCHAR(255)"/>
+            <column name="choicetwo" type="VARCHAR(255)"/>
+            <column name="choicethree" type="VARCHAR(255)"/>
+            <column name="choicefour" type="VARCHAR(255)"/>
+            <column name="correctAnswer" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet to add columns to the 'quiz' table -->
+    <changeSet id="add-columns-to-quiz-table" author="quiz">
+        <!-- Check if the specified columns do not exist -->
+        <preConditions onFail="CONTINUE">
+            <and>
+                <columnExists tableName="quiz" columnName="new_column_one"/>
+                <columnExists tableName="quiz" columnName="new_column_two"/>
+            </and>
+        </preConditions>
+        <!-- Add the specified columns -->
+        <addColumn tableName="quiz">
+            <column name="new_column_one" type="VARCHAR(255)"/>
+            <column name="new_column_two" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

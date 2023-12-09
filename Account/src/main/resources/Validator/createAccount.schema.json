@@ -1,0 +1,30 @@
+{
+	"schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Validate create profile request",
+	"description": "Create New Profile",
+	"type": "object",
+	"additionalProperties": true,
+	"properties": {
+		"email": {
+			"type": "string",
+			"decription": "Email address",
+			"format": "email"
+		},
+  		"password": {
+			"type": "string",
+			"description": "password",
+			"minLength": 8,
+			"maxLength": 20,
+			"pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%^&*])"
+		},
+		"fullname":{
+			"type": "string",
+			"minLength": 8,
+			"maxLength": 20
+		},
+		"avaterimage":{
+			"type": "string"
+		}
+	},
+	"required": ["email","password","fullname"]
+}

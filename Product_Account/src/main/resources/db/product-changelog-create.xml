@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+	
+	<changeSet id="create-table-AccountRegister" author="AccountRegister" runAlways="true">
+		<preConditions onFail="CONTINUE" onFailMessage="table AccountRegister already exists">
+			<not>
+                <tableExists tableName="AccountRegister" />
+            </not>
+		</preConditions>
+		<createTable tableName="AccountRegister">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+        </createTable>
+	</changeSet>
+    <changeSet id="table-account-add-column-ProductId" author="AccountRegister" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="column ProductId already exists in table AccountRegister">
+            <not>
+                <columnExists  tableName="AccountRegister" columnName="ProductId" />
+            </not>
+        </preConditions>
+        <addColumn tableName="AccountRegister">
+            <column name="ProductId" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="table-AccountRegister-add-column-email" author="AccountRegister" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="column AccountID already exists in table AccountRegister">
+            <not>
+                <columnExists  tableName="AccountRegister" columnName="AccountID" />
+            </not>
+        </preConditions>
+        <addColumn tableName="AccountRegister">
+            <column name="AccountID" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

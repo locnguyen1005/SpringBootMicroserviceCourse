@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 100,
+      "pattern": ".*[a-zA-Z]+.*"
+    },
+    "accountid": {
+      "type": "integer"
+    },
+    "folder": {
+      "type": "string"
+    },
+    "starttime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "maxuser": {
+      "type": "integer"
+    }
+  },
+  "required": ["name"]
+}
