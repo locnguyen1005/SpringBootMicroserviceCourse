@@ -24,10 +24,11 @@ import com.example.demo.DTO.LessionClient;
 import com.example.demo.DTO.LessionDTO;
 
 import com.example.demo.Entity.LessionEntity;
+import com.example.demo.Event.LessionProducer;
 import com.example.demo.Model.Product;
 import com.example.demo.Repository.LessionRepository;
-
-
+import com.example.demo.utils.ConstantCommon;
+import com.google.gson.Gson;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
@@ -51,10 +52,12 @@ import java.io.IOException;
 @Service
 @Slf4j
 public class LesssionService {
-
+	@Autowired
+	Gson gson;
 	@Autowired
 	private WebClient.Builder webBuilder;
-
+	@Autowired
+	private LessionProducer lessionProducer;
 	private static final String Class = null;
 	@Autowired
 	private LessionRepository lessionRepository;
@@ -86,6 +89,7 @@ public class LesssionService {
 //				return Mono.error(
 //						new CommonException(lessionDTO.getTitle(), "Name lession duplicate", HttpStatus.BAD_REQUEST));
 //			}
+			
 			File fileObj = convertMultiPartFileToFile(file);
 	        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 	        amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
@@ -94,7 +98,11 @@ public class LesssionService {
 	        lessionDTO.setDate(LocalDateTime.now().toString());
 			return Mono.just(lessionDTO).map(newLession -> mapper.map(newLession, LessionEntity.class))
 					.flatMap(newLessionEntity -> lessionRepository.save(newLessionEntity))
-					.map(accountEntity -> mapper.map(accountEntity, LessionDTO.class));
+					.map(accountEntity -> mapper.map(accountEntity, LessionDTO.class))
+					.doOnError(throwable -> log.error(throwable.getMessage()))
+	                .doOnSuccess(dto -> {
+	                	lessionProducer.send(ConstantCommon.LESSION_ACCOUNT,gson.toJson(dto)).subscribe();
+	                });
 		} catch (Exception e) {
 			return Mono.error(e);
 

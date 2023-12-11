@@ -36,9 +36,8 @@ public class QuizService{
 	}
 	public Mono<QuizDTO> createProduct(QuizDTO quizDTO) throws IOException{
 		try {
-			
 			if(checkDuplicate(quizDTO).block().equals(Boolean.TRUE)) {
-				return Mono.error(new CommonException(quizDTO.getQuestion(), "The course name already exists", HttpStatus.BAD_REQUEST));
+				return Mono.error(new CommonException(quizDTO.getQuestion(), "The Quiz name already exists", HttpStatus.BAD_REQUEST));
 			}
 			else {
 				
@@ -56,6 +55,6 @@ public class QuizService{
 		return quizRepository.findById(productDTOID).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
 	}
 	public Flux<QuizDTO> getAllQuizProductID(Long productid){
-		return quizRepository.findByProductid(productid).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
+		return quizRepository.findByProductid(productid).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class));
 	}
 }

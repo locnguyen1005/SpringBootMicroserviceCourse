@@ -16,11 +16,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Lession_Account {
 	@Id
-	private long id;
+	private Long id;
 	@Column("lessionid")
 	private long lessionId;
 	@Column("accountid")
-	private long accountId;
-	private long score;
-
+	private Long accountId;
+	private Long score;
+	private String time;
+	private Long success;
+	private Long productid;
+	
 }

@@ -87,7 +87,6 @@ public class LessionController {
 	
 	@PutMapping("/edit/{id}")
 	public ResponseEntity<Mono<LessionDTO>> editlession(@RequestBody LessionDTO lessionDTO)throws Exception{
-		
 		return ResponseEntity.status(HttpStatus.CREATED).body(lesssionService.updatelession(lessionDTO));
 	}
 	@PostMapping("/Loc")
@@ -100,5 +99,14 @@ public class LessionController {
 	@GetMapping("/GetAllBy/{productid}")
 	public Flux<LessionDTO> getallbyproductId(@PathVariable Long productid){
 		return lesssionService.getAllLessionByProductId(productid);
+	}
+	//Them lession khi product da duoc dky
+	@PostMapping("/addLession")
+	public ResponseEntity<Mono<LessionDTO>> addLessonToProduct(@RequestParam("data") String requestStr , @RequestParam(value = "file") MultipartFile file)throws Exception{
+			//đổi chuỗi String qua json
+			InputStream inputStream = LessionController.class.getClassLoader().getResourceAsStream(com.example.demo.Utils.Constant.JSON_CREATE_ACCOUNT);
+			CommonValidate.jsonValidate(requestStr, inputStream);
+			LessionDTO lessionDTO = gson.fromJson(requestStr,LessionDTO.class);
+			return ResponseEntity.status(HttpStatus.CREATED).body(lesssionService.createLession(lessionDTO , file));
 	}
 }

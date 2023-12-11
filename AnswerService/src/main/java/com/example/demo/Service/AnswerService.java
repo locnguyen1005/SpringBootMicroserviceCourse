@@ -30,25 +30,27 @@ public class AnswerService {
 	}
 	
 	public Mono<Answer> saveAnswer(Answer answer,Flux<Quiz> quizFlux){
-		for (Quiz element : quizFlux.toIterable()) {
-			Answer newAnswer = new Answer();
-			
-			newAnswer.setQuizid(element.getId());
-			newAnswer.setProductid(element.getProduct());
-			newAnswer.setLessionid(element.getLessionid());
-			//0 là chưa trả lời
-			//1 là true
-			//2 là false
-			newAnswer.setResult(0l);
-			try {
-				Mono<Answer> newAnswer1 = answerRepository.save(newAnswer);
-				log.info( newAnswer1.block().toString());
-			} catch (Exception e) {
-				log.info( e.toString());
-			}
+		if(quizFlux.hasElements().block()) {
+			for (Quiz element : quizFlux.toIterable()) {
+				Answer newAnswer = new Answer();
+				newAnswer.setQuizid(element.getId());
+				newAnswer.setProductid(element.getProduct());
+				newAnswer.setLessionid(element.getLessionid());
+				//0 là chưa trả lời
+				//1 là true
+				//2 là false
+				newAnswer.setResult(0l);
+				try {
+					Mono<Answer> newAnswer1 = answerRepository.save(newAnswer);
+					log.info( newAnswer1.block().toString());
+				} catch (Exception e) {
+					log.info( e.toString());
+				}
 
-		}	
-		return Mono.just(answer);
+			}	
+			return Mono.just(answer);
+		}
+		return Mono.just(null);
 	}
 	
 	public Flux<Answer> editAnswer(Long id , List<Answer> answer){

@@ -76,6 +76,16 @@ public class AccountController {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(accountService.createAccount(gson.fromJson(requestStr, AccountDTO.class),file));
 	}
+	@PostMapping("/CreateTeacher")
+	public ResponseEntity<Mono<AccountDTO>> createAccountTeacher(@RequestParam("data") String requestStr , @RequestParam(value = "file") MultipartFile file) {
+		InputStream inputStream = AccountController.class.getClassLoader()
+				.getResourceAsStream(Constant.JSON_CREATE_ACCOUNT);
+		CommonValidate.jsonValidate(requestStr, inputStream);
+		log.info(requestStr);
+		log.info(requestStr);
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(accountService.createAccount(gson.fromJson(requestStr, AccountDTO.class),file));
+	}
 	@PostMapping("/authenticate")
     public String authenticateAndGetToken(@RequestBody AccountDTO authRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword()));

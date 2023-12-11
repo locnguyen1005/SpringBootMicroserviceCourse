@@ -39,4 +39,8 @@ public class Product_Account_Service {
 		log.info("register service true");
 		return repository.save(accountRegister);
 	}
+	public Flux<AccountRegister> getAllAccount(Long id){
+		
+		return repository.findByProductId(id).switchIfEmpty(Flux.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
+	}
 }

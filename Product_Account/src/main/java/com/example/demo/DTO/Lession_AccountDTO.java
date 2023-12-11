@@ -13,9 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lession_AccountDTO {
-	private long id;
-	private long lessionId;
-	private long accountId;
-	private long score;
-	private long time;
+	private Long id;
+	private Long lessionId;
+	private Long accountId;
+	private Long score;
+	private Long time;
+	private Long success;
+	private Long productid;
 }

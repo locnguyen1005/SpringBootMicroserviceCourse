@@ -24,6 +24,7 @@ import com.example.demo.Config.Config;
 import com.example.demo.DTO.AccountDTO;
 
 import com.example.demo.Entity.AccountEntity;
+import com.example.demo.Event.AccountProducer;
 import com.example.demo.Repository.AccountRepository;
 import com.example.demo.utils.ConstantCommon;
 import com.google.gson.Gson;
@@ -37,6 +38,8 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class AccountService {
 
+	@Autowired
+	private AccountProducer accountProducer;
 	@Autowired
 	private AccountRepository accountRepository;
 	@Autowired 
@@ -79,11 +82,34 @@ public class AccountService {
 	        amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
 	        fileObj.delete();
 	        accountDTO.setAvaterimage(fileName);
-
+	        
 			return Mono.just(accountDTO)
 					.map(newAccountDTO -> mapper.map(newAccountDTO, AccountEntity.class))
 					.flatMap(account -> accountRepository.save(account))
 					.map(accountEntity -> mapper.map(accountEntity, AccountDTO.class));
+		}
+	}
+	public Mono<AccountDTO> createAccountTeacher(AccountDTO accountDTO , MultipartFile file){
+		if((checkDuplicate(accountDTO).block()).equals(Boolean.TRUE)) {
+			 return Mono.error(new CommonException(accountDTO.getEmail(), "Account duplicate", HttpStatus.BAD_REQUEST));
+		}
+		else {
+			accountDTO.setPassword(passwordEncoder.encode(accountDTO.getPassword()));
+			accountDTO.setRole("TEACHER");
+			File fileObj = convertMultiPartFileToFile(file);
+	        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+	        amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
+	        fileObj.delete();
+	        accountDTO.setAvaterimage(fileName);
+
+			return Mono.just(accountDTO)
+					.map(newAccountDTO -> mapper.map(newAccountDTO, AccountEntity.class))
+					.flatMap(account -> accountRepository.save(account))
+					.map(accountEntity -> mapper.map(accountEntity, AccountDTO.class))
+					.doOnError(throwable -> log.error(throwable.getMessage()))
+	                .doOnSuccess(dto -> {
+	                	accountProducer.send("AccountSendTeacher", gson.toJson(accountDTO));
+	                });
 		}
 	}
 	public Mono<AccountDTO> deleteAccount(AccountDTO accountDTO){

@@ -34,4 +34,5 @@ public class QuizController {
 	public Flux<QuizDTO> getAllQuizByproductId(@PathVariable Long productid){
 		return quizService.getAllQuizProductID(productid);
 	}
+	
 }

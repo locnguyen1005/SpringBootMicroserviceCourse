@@ -48,7 +48,16 @@ public class AnswerConrtoller {
                 .uri("http://localhost:9001/Quiz/GetAll/"+answer.getProductid().toString())
                 .retrieve()
                 .bodyToFlux(Quiz.class);
-        return answerService.saveAnswer(answer , resultQuizInProduct);
+		
+		if(resultQuizInProduct.hasElements().block()) {
+			log.info("loc");
+			return answerService.saveAnswer(answer , resultQuizInProduct);
+		}
+		else {
+			log.info("loc1");
+			return Mono.just(answer);
+		}
+        
     }
 	@PutMapping("/Edit/{id}")//trỏ lessionid vô
     public Flux<Answer> submit(@PathVariable Long id ,@RequestBody List<Answer> answer) {

@@ -79,8 +79,8 @@ public class Product_Account_Controller {
 		log.info("register true");
 		return service.registerProduct(accountRegister);
 	}
-	@GetMapping("/accountregister")
-	public Flux<AccountRegister> accountRegister(@RequestBody Long id){
+	@GetMapping("/accountregister/{id}")
+	public Flux<AccountRegister> productRegister(@PathVariable Long id){
 		return service.getAllProductAccountRegistered(id);
 	}
 	@PostMapping("/registerproduct")
@@ -90,5 +90,9 @@ public class Product_Account_Controller {
 	@GetMapping("/demoapi")
 	public void register(){
 		log.info("register true");
+	}
+	@GetMapping("/product/{id}")
+	public Flux<AccountRegister> accountRegister(@PathVariable Long id){
+		return service.getAllProductAccountRegistered(id);
 	}
 }

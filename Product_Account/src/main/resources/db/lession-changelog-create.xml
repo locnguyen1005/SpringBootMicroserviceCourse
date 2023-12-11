@@ -5,21 +5,24 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <!-- ChangeSet to create the 'lession_account' table -->
-    <changeSet id="create-lession-account-table" author="your_name">
+    <changeSet id="create-lessionaccount-table" author="lessionaccount">
         <!-- Check if the 'lession_account' table does not exist -->
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="lession_account"/>
+                <tableExists tableName="lessionaccount"/>
             </not>
         </preConditions>
         <!-- Create the 'lession_account' table -->
-        <createTable tableName="lession_account">
-            <column name="id" type="BIGINT">
+        <createTable tableName="lessionaccount" >
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="lessionId" type="BIGINT"/>
             <column name="accountId" type="BIGINT"/>
             <column name="score" type="BIGINT"/>
+            <column name="time" type="VARCHAR(255)"/>
+            <column name="success" type="BIGINT"/>
+            <column name="productid" type="BIGINT"/>
         </createTable>
     </changeSet>
 

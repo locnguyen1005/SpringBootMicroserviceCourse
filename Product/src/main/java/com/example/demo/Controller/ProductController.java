@@ -71,5 +71,10 @@ public class ProductController {
 	public ResponseEntity<Mono<ProductDTO>> detailProduct(@PathVariable Long id){
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.finđById(id));
 	}
-
+	@PutMapping("/Edit/{id}")
+	public ResponseEntity<Mono<ProductDTO>> edit(@PathVariable Long id ,@RequestParam(value = "data") String product , @RequestParam(value = "file") MultipartFile file){
+		InputStream inputStream = ProductController.class.getClassLoader().getResourceAsStream(Constant.JSON_Product);
+		CommonValidate.jsonValidate(product, inputStream);
+		return ResponseEntity.status(HttpStatus.CREATED).body(productService.editproduct(id,gson.fromJson(product, ProductDTO.class),file));
+	}
 }

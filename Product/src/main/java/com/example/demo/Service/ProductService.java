@@ -90,6 +90,33 @@ public class ProductService {
 	public Mono<ProductDTO> finđById(Long productDTOID){
 		return productRepository.findById(productDTOID).map(ProductDTO -> modelMapper.map(ProductDTO, ProductDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
 	}
+	
+	public Mono<ProductDTO> editproduct(Long id , ProductDTO productDTO , MultipartFile file){
+		ProductDTO productDTO2= productRepository.findById(id).map(ProductDTO -> modelMapper.map(ProductDTO, ProductDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST))).block();
+		productDTO2.setDescription(productDTO.getDescription());
+		productDTO2.setName(productDTO.getName());
+		productDTO2.setPrice(productDTO.getPrice());
+		if(file.isEmpty()) {
+			return Mono.just(productDTO2)
+					.map(productdto -> modelMapper.map(productdto, ProductEntity.class))
+					.flatMap(product -> productRepository.save(product))
+					.map(productentity -> modelMapper.map(productentity, ProductDTO.class))
+					.doOnSubscribe(dto -> log.info("susscess"));	
+		}
+		else {
+
+			File fileObj = convertMultiPartFileToFile(file);
+	        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+	        amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
+	        fileObj.delete();
+	        productDTO2.setImage(fileName);
+			return Mono.just(productDTO2)
+					.map(productdto -> modelMapper.map(productdto, ProductEntity.class))
+					.flatMap(product -> productRepository.save(product))
+					.map(productentity -> modelMapper.map(productentity, ProductDTO.class))
+					.doOnSubscribe(dto -> log.info("susscess"));
+		}
+	}
 	private java.io.File convertMultiPartFileToFile(MultipartFile file) {
         java.io.File convertedFile = new File(file.getOriginalFilename());
         try (FileOutputStream fos = new FileOutputStream(convertedFile)) {
