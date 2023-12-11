@@ -36,4 +36,13 @@ public class Lession_Account_Controller {
 //	public Flux<Lession_AccountDTO> getAllQuizByproductId(@PathVariable Long productid){
 //		return quizService.getAllQuizProductID(productid);
 //	}
+	@GetMapping("/getlessionaccount/{lessionid}/{accountid}")
+	public Mono<Lession_AccountDTO> editLesssionAccount(@PathVariable Long lessionid ,@PathVariable Long accountid) throws IOException{
+		return quizService.finđByIdLesion(lessionid,accountid);
+	}
+	@GetMapping("/getlessionproduct/{productid}/{accountid}")
+	public Flux<Lession_AccountDTO> editLesssionproduct(@PathVariable Long productid ,@PathVariable Long accountid) throws IOException{
+		return quizService.finđByIdProduct(productid,accountid);
+	}
+	
 }

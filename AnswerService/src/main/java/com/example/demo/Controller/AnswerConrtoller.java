@@ -61,7 +61,6 @@ public class AnswerConrtoller {
     }
 	@PutMapping("/Edit/{id}")//trỏ lessionid vô
     public Flux<Answer> submit(@PathVariable Long id ,@RequestBody List<Answer> answer) {
-		
         return answerService.editAnswer(id,answer);
     }
 
@@ -70,4 +69,12 @@ public class AnswerConrtoller {
 		log.info("answer true");
 		return answerRepository.save(answer);
     }
+	@PutMapping("/find/{lessionid}")//trỏ lessionid vô
+    public Flux<Answer> submit(@PathVariable Long lessionid ) {
+        return answerService.getAnswerById(lessionid);
+    }
+	@GetMapping("/GetLession/{accountid}/{lessionid}")
+	public Flux<Answer> getAllAnswerByAccount(@PathVariable Long accountid, @PathVariable Long lessionid){
+		return answerService.getAnswerByAccount(accountid, lessionid);
+	}
 }

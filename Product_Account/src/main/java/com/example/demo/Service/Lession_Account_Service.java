@@ -46,7 +46,13 @@ public class Lession_Account_Service {
 	public Mono<QuizDTO> finđById(Long productDTOID){
 		return quizRepository.findById(productDTOID).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
 	}
+	public Mono<Lession_AccountDTO> finđByIdLesion(Long accountid , Long lessionid){
+		return quizRepository.findByAccountLession(lessionid,accountid).map(ProductDTO -> modelMapper.map(ProductDTO, Lession_AccountDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
+	}
 //	public Flux<QuizDTO> getAllQuizProductID(Long productid){
 //		return quizRepository.findByProductid(productid).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
 //	}
+	public Flux<Lession_AccountDTO> finđByIdProduct(Long productid , Long accountid){
+		return quizRepository.findByAccountLessionByProduct(productid,accountid).map(ProductDTO -> modelMapper.map(ProductDTO, Lession_AccountDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
+	}
 }

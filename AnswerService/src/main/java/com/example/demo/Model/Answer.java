@@ -26,6 +26,16 @@ public class Answer {
     private Long quizid;
     private String answer;
     private Long result;
+    
     private Long lessionid;
     private Long productid;
+    
+	private String question;
+	
+	private String choiceone;
+	private String choicetwo;
+	private String choicethree;
+	private String choicefour;
+	private String correctAnswer;
+    
 }

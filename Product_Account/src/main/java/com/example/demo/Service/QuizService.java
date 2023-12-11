@@ -57,4 +57,7 @@ public class QuizService{
 	public Flux<QuizDTO> getAllQuizProductID(Long productid){
 		return quizRepository.findByProductid(productid).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class));
 	}
+	public Flux<QuizDTO> getAllQuizLessionID(Long lessionid){
+		return quizRepository.findByLessionid(lessionid).map(ProductDTO -> modelMapper.map(ProductDTO, QuizDTO.class));
+	}
 }

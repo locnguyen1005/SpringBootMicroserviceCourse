@@ -33,13 +33,20 @@ public class AnswerService {
 		if(quizFlux.hasElements().block()) {
 			for (Quiz element : quizFlux.toIterable()) {
 				Answer newAnswer = new Answer();
+				
 				newAnswer.setQuizid(element.getId());
 				newAnswer.setProductid(element.getProduct());
 				newAnswer.setLessionid(element.getLessionid());
-				//0 là chưa trả lời
-				//1 là true
-				//2 là false
+				newAnswer.setAccountid(answer.getAccountid());
 				newAnswer.setResult(0l);
+				newAnswer.setQuestion(element.getQuestion());
+				
+				newAnswer.setChoicefour(element.getChoicefour());
+				newAnswer.setChoiceone(element.getChoiceone());
+				newAnswer.setChoicethree(element.getChoicethree());
+				newAnswer.setChoicetwo(element.getChoicetwo());
+				
+				newAnswer.setCorrectAnswer(element.getCorrectAnswer());
 				try {
 					Mono<Answer> newAnswer1 = answerRepository.save(newAnswer);
 					log.info( newAnswer1.block().toString());
@@ -51,6 +58,9 @@ public class AnswerService {
 			return Mono.just(answer);
 		}
 		return Mono.just(null);
+	}
+	public Flux<Answer> getAnswerByAccount(Long accountid , Long Lessionid){
+		return answerRepository.findbyLessionAccountid(accountid, Lessionid);
 	}
 	
 	public Flux<Answer> editAnswer(Long id , List<Answer> answer){
@@ -72,5 +82,7 @@ public class AnswerService {
 		}
 		return answerRepository.saveAll(answer);
 	}
-
+	public Flux<Answer> getAnswerById(Long lessionid){
+		return answerRepository.findByLessionid(lessionid);
+	}
 }

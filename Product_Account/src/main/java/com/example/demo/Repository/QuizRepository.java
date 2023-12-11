@@ -12,4 +12,5 @@ import reactor.core.publisher.Mono;
 public interface QuizRepository extends R2dbcRepository<Quiz, Long> {
 	Mono<Quiz> findByQuestion(String quesion);
 	Flux<Quiz> findByProductid(long produtid);
+	Flux<Quiz> findByLessionid(Long lessionid);
 }
