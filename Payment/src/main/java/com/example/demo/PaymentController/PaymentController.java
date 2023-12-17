@@ -109,9 +109,10 @@ public class PaymentController {
 		// tạo email
 		Mail mailsend = new Mail();
 		mailsend.setRecipient(account.block().getEmail());
-		mailsend.setMsgBody("Bạn đã đăng ký khóa học " + product.block().getName());
+		mailsend.setMsgBody("<html><body><h1>Bạn đã đặt hàng thành công</h1></body></html>" 
+							+"<p>Tên khóa học của bạn là: <strong>"+ product.block().getName()+"</strong></p>"
+							+"<p>Giá tiền: <strong>"+ product.block().getPrice()+"</strong></p>");
 		mailsend.setSubject("Đăng ký khóa học thành công");
-
 		// Tạo quiz cho người đăng ký
 		Answer answer = new Answer();
 		answer.setAccountid(Long.parseLong(queryParams.get("account")));

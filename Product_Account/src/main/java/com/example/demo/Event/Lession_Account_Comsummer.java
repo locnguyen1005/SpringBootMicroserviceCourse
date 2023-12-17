@@ -40,8 +40,9 @@ public class Lession_Account_Comsummer {
 	@KafkaListener(id = "AccountSendCreate", topics = ConstantCommon.LESSION_ACCOUNT)
 	public void commsumerLession_Account(String mail) {
 		Lession lession = gson.fromJson(mail, Lession.class);
+		int i=0;
 
-//		Lession_Account lession_Account = gson.fromJson(mail, Lession_Account.class);
+		Lession_Account lession_Account = gson.fromJson(mail, Lession_Account.class);
 //		Flux<AccountRegister> accountregisterFlux = product_Account_Reopository.findByProductId(lession.getProductId());
 //		if(accountregisterFlux.hasElements().block()) {
 //			for (AccountRegister element : accountregisterFlux.toIterable()) {
@@ -79,21 +80,38 @@ public class Lession_Account_Comsummer {
 			}
 		} else {
 
-//			Flux<Lession> resultProduct = webBuilder.build().get()
-//					.uri("http://localhost:9003/Lession/GetAllBy/" + lession_Account.getProductid()).retrieve()
-//					.bodyToFlux(Lession.class);
-//			for (Lession element : resultProduct.toIterable()) {
-//				log.info(element.toString());
-//				Lession_Account newLession_Account = new Lession_Account();
-//				newLession_Account.setAccountId(lession_Account.getAccountId());
-//				newLession_Account.setLessionId(element.getId());
-//				newLession_Account.setProductid(element.getProductId());
-//				newLession_Account.setScore(0l);
-//				newLession_Account.setSuccess(0l);
-//				newLession_Account.setTime(null);
-//				Mono<Lession_Account> newMonoLession_Account = lession_Account_Repository.save(newLession_Account);
-//				log.info(newMonoLession_Account.block().toString());
-//			}
+			Flux<Lession> resultProduct = webBuilder.build().get()
+					.uri("http://localhost:9003/Lession/GetAllBy/" + lession_Account.getProductid()).retrieve()
+					.bodyToFlux(Lession.class);
+			for (Lession element : resultProduct.toIterable()) {
+				if(i==0) {
+					i++;
+					log.info(element.toString());
+					Lession_Account newLession_Account = new Lession_Account();
+					newLession_Account.setAccountId(lession_Account.getAccountId());
+					newLession_Account.setLessionId(element.getId());
+					newLession_Account.setProductid(element.getProductId());
+					newLession_Account.setScore(0l);
+					newLession_Account.setSuccess(1l);
+					newLession_Account.setTime(null);
+					Mono<Lession_Account> newMonoLession_Account = lession_Account_Repository.save(newLession_Account);
+					log.info(newMonoLession_Account.block().toString());
+					
+				}
+				else {
+					log.info(element.toString());
+					Lession_Account newLession_Account = new Lession_Account();
+					newLession_Account.setAccountId(lession_Account.getAccountId());
+					newLession_Account.setLessionId(element.getId());
+					newLession_Account.setProductid(element.getProductId());
+					newLession_Account.setScore(0l);
+					newLession_Account.setSuccess(0l);
+					newLession_Account.setTime(null);
+					Mono<Lession_Account> newMonoLession_Account = lession_Account_Repository.save(newLession_Account);
+					log.info(newMonoLession_Account.block().toString());
+				}
+				
+			}
 
 		}
 	};

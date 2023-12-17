@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 
 
 @Controller
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3006")
 public class ChatAppController {
 
     @Autowired
@@ -28,17 +28,12 @@ public class ChatAppController {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
-    @MessageMapping("/message")
-    @SendTo("/chatroom/public")
+    @MessageMapping("/message/{productid}")
+    @SendTo("/chatroom/public/{productid}")
     public ChatMessage chat(@Payload ChatMessageDTO chatMessage) {
         return service.saveChatMessageToDB(chatMessage).block();
     }
-    @MessageMapping("/private-message")
-    public Mono<ChatMessage> recMessage(@Payload ChatMessageDTO message){
-        simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(),"/private",message);
-        System.out.println(message.toString());
-        return service.saveChatMessageToDB(message);
-    }
+
     @GetMapping("/getall/{productid}")
     public Flux<ChatMessage> getChatMessage(@PathVariable Long productid) {
     	return service.getallchatmessagebyproductid(productid);

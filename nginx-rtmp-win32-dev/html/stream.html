@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <title>Video Player</title>
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.17.0/video-js.css">
+    <script src="https://vjs.zencdn.net/7.17.0/video.js"></script>
+
+
+    <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+
+</head>
+
+<body>
+
+
+    <video-js id="player" class="vjs-default-skin vjs-big-play-centered" controls preload="auto"
+        data-setup='{"fluid": true}'>
+        <source src="http://localhost:8080/hls/89969acc-b54b-467c-85ad-8c4a6b92d7c5.m3u8" type="application/x-mpegURL">
+    </video-js>
+
+    <script>
+        var player = videojs('player');
+    </script>
+</body>
+
+</html>

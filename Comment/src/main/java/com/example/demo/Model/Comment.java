@@ -21,4 +21,5 @@ public class Comment {
 	private Long accountid;
 	private Long productid;
 	private String comment;
+	private String image;
 }

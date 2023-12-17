@@ -15,7 +15,7 @@ spring:
 #           - AuthenticationFilter
 
         - id: Product-Service
-          uri: http://localhost:8888
+          uri: http://localhost:8999
           predicates:
             - Path=/product/**
             

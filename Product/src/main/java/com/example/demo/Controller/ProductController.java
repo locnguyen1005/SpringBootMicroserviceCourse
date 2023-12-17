@@ -77,4 +77,5 @@ public class ProductController {
 		CommonValidate.jsonValidate(product, inputStream);
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.editproduct(id,gson.fromJson(product, ProductDTO.class),file));
 	}
+	
 }

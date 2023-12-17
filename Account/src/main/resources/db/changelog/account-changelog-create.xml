@@ -80,4 +80,28 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet id="table-account-add-column-address" author="account" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="column address already exists in table account">
+            <not>
+                <columnExists  tableName="account" columnName="address" />
+            </not>
+        </preConditions>
+        <addColumn tableName="account">
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="table-account-add-column-phonenumber" author="account" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="column phonenumber already exists in table account">
+            <not>
+                <columnExists  tableName="account" columnName="phonenumber" />
+            </not>
+        </preConditions>
+        <addColumn tableName="account">
+            <column name="phonenumber" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

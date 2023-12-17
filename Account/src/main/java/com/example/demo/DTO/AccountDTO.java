@@ -21,4 +21,6 @@ public class AccountDTO {
 	private String fullname;
 	private String avaterimage;
 	private String role;
+	private String phonenumber;
+	private String address;
 }
