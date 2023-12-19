@@ -27,8 +27,13 @@ spring:
         - id: Lession-Service
           uri: http://localhost:9003
           predicates:
-            - Path=/Lession/** 
-            
+            - Path=/Lession/**
+
+        - id: Comment-Service
+          uri: http://localhost:8888
+          predicates:
+            - Path=/Comment/**
+
         - id: Answer-Service
           uri: http://localhost:8889
           predicates:
@@ -37,7 +42,18 @@ spring:
         - id: Payment-Service
           uri: http://localhost:9002
           predicates:
-            - Path=/api/v1/** 
+            - Path=/api/v1/**
+
+        - id: Chat-Service
+          uri: http://localhost:9005
+          predicates:
+            - Path=/Chat/**
+
+        - id: Stream-Service
+          uri: http://localhost:9008
+          predicates:
+            - Path=/Stream/**
+
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:

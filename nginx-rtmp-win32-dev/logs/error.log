@@ -6511,3 +6511,58 @@
 2023/12/17 17:02:06 [notice] 14016#21116: exit
 2023/12/17 17:02:06 [notice] 16768#5384: worker process 14016 exited with code 0
 2023/12/17 17:02:06 [notice] 16768#5384: exit
+2023/12/17 20:22:00 [notice] 20308#24448: using the "select" event method
+2023/12/17 20:22:00 [notice] 20308#24448: nginx/1.14.1
+2023/12/17 20:22:00 [info] 20308#24448: OS: 260200 build:9200, "", suite:100, type:1
+2023/12/17 20:22:00 [notice] 20308#24448: start worker processes
+2023/12/17 20:22:00 [notice] 20308#24448: start worker process 16468
+2023/12/17 20:22:00 [notice] 16468#23300: nginx/1.14.1
+2023/12/17 20:22:00 [info] 16468#23300: OS: 260200 build:9200, "", suite:100, type:1
+2023/12/17 20:22:00 [notice] 16468#23300: create thread 3172
+2023/12/17 20:22:00 [notice] 16468#23300: create thread 17760
+2023/12/17 20:22:00 [notice] 16468#23300: create thread 4036
+2023/12/17 20:22:00 [info] 16468#3172: *1 client connected '127.0.0.1'
+2023/12/17 20:22:00 [info] 16468#3172: *1 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:02 [info] 16468#3172: *1 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:02 [info] 16468#3172: *1 publish: name='119230ab-d5ce-48b0-8d8d-375a57120bf5' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:03 [info] 16468#3172: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:03 [info] 16468#3172: *1 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:03 [info] 16468#3172: *1 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:03 [info] 16468#3172: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:09 [info] 16468#3172: *2 client connected '127.0.0.1'
+2023/12/17 20:22:09 [info] 16468#3172: *2 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:11 [info] 16468#3172: *2 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:11 [info] 16468#3172: *2 publish: name='119230ab-d5ce-48b0-8d8d-375a57120bf5' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:28 [info] 16468#3172: *2 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:28 [info] 16468#3172: *2 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:28 [info] 16468#3172: *2 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:28 [info] 16468#3172: *2 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:39 [info] 16468#3172: *3 client connected '127.0.0.1'
+2023/12/17 20:22:39 [info] 16468#3172: *3 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:41 [info] 16468#3172: *3 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:22:41 [info] 16468#3172: *3 publish: name='119230ab-d5ce-48b0-8d8d-375a57120bf5' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:23:52 [info] 16468#3172: *3 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:23:52 [info] 16468#3172: *3 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:23:52 [info] 16468#3172: *3 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:23:52 [info] 16468#3172: *3 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:15 [info] 16468#3172: *4 client connected '127.0.0.1'
+2023/12/17 20:35:15 [info] 16468#3172: *4 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:17 [info] 16468#3172: *4 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:17 [info] 16468#3172: *4 publish: name='119230ab-d5ce-48b0-8d8d-375a57120bf6' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:39 [info] 16468#3172: *4 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:39 [info] 16468#3172: *4 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:39 [info] 16468#3172: *4 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:35:39 [info] 16468#3172: *4 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 20:36:24 [info] 16468#3172: *8 client 127.0.0.1 closed keepalive connection
+2023/12/17 20:36:24 [info] 16468#3172: *6 client 127.0.0.1 closed keepalive connection
+2023/12/17 20:36:24 [info] 16468#3172: *7 client 127.0.0.1 closed keepalive connection
+2023/12/17 21:02:00 [info] 16468#3172: *9 client connected '127.0.0.1'
+2023/12/17 21:02:00 [info] 16468#3172: *9 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:02:01 [info] 16468#3172: *9 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:02:01 [info] 16468#3172: *9 publish: name='119230ab-d5ce-48b0-8d8d-375a57120bf7' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:02:25 [info] 16468#3172: *9 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:02:25 [info] 16468#3172: *9 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:02:25 [info] 16468#3172: *9 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:02:25 [info] 16468#3172: *9 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/17 21:03:16 [info] 16468#3172: *11 client 127.0.0.1 closed keepalive connection
+2023/12/17 21:03:16 [info] 16468#3172: *12 client 127.0.0.1 closed keepalive connection

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="CommonService">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/CommonService" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/CommonService/src/main/java" />
+      <root url="file://$PROJECT_DIR$/CommonService/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../SpringBootMicroservice-master/Account/pom.xml" />
+        <option value="$PROJECT_DIR$/../SpringBootMicroservice-master/CommonService/pom.xml" />
+        <option value="$PROJECT_DIR$/../SpringBootMicroservice-master/AnswerService/pom.xml" />
+        <option value="$PROJECT_DIR$/APIGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ChatService/pom.xml" />
+        <option value="$PROJECT_DIR$/Account/pom.xml" />
+        <option value="$PROJECT_DIR$/AnswerService/pom.xml" />
+        <option value="$PROJECT_DIR$/Comment/pom.xml" />
+        <option value="$PROJECT_DIR$/CommonService/pom.xml" />
+        <option value="$PROJECT_DIR$/Discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/EmailService/pom.xml" />
+        <option value="$PROJECT_DIR$/Lession/pom.xml" />
+        <option value="$PROJECT_DIR$/NotificationService/pom.xml" />
+        <option value="$PROJECT_DIR$/Payment/pom.xml" />
+        <option value="$PROJECT_DIR$/Product/pom.xml" />
+        <option value="$PROJECT_DIR$/Product_Account/pom.xml" />
+        <option value="$PROJECT_DIR$/StreamingService/pom.xml" />
+      </list>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+  </component>
+  <component name="PWA">
+    <option name="enabled" value="true" />
+    <option name="wasEnabledAtLeastOnce" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
