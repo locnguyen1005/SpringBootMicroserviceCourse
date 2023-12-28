@@ -86,6 +86,7 @@ public class LesssionService {
 	        fileObj.delete();
 	        lessionDTO.setVideo(fileName);
 	        lessionDTO.setDate(LocalDateTime.now().toString());
+			lessionDTO.setDeletesoft(0l);
 			return Mono.just(lessionDTO).map(newLession -> mapper.map(newLession, LessionEntity.class))
 					.flatMap(newLessionEntity -> lessionRepository.save(newLessionEntity))
 					.map(accountEntity -> mapper.map(accountEntity, LessionDTO.class))

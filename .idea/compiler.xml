@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ProductStream" />
         <module name="Account" />
         <module name="Comment" />
         <module name="Discovery" />
@@ -18,6 +19,7 @@
         <module name="AnswerService" />
         <module name="Product_Account" />
         <module name="Payment" />
+        <module name="task-schedular-spring-boot" />
         <module name="APIGateway" />
         <module name="EmailService" />
         <module name="ChatService" />
@@ -37,9 +39,11 @@
       <module name="NotificationService" options="-parameters" />
       <module name="Payment" options="-parameters" />
       <module name="Product" options="-parameters" />
+      <module name="ProductStream" options="-parameters" />
       <module name="Product_Account" options="-parameters" />
       <module name="StreamingService" options="-parameters" />
       <module name="lession" options="-parameters" />
+      <module name="task-schedular-spring-boot" options="-parameters" />
     </option>
   </component>
 </project>

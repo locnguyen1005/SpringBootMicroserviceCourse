@@ -3,6 +3,9 @@ package com.example.accountservice.Controller;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.example.accountservice.Event.AccountProducer;
+import com.example.commonservice.Model.Mail;
+import com.example.commonservice.utils.ConstantCommon;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,6 +61,8 @@ public class AccountController {
 	Gson gson = new Gson();
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	@Autowired
+	private AccountProducer accountProducer;
 	@Autowired
 	private JwtService jwtService;
 	@GetMapping("/GetAll")
@@ -120,5 +125,27 @@ public class AccountController {
 		log.info(requestStr);
 		return accountService.editAccount(accountid, gson.fromJson(requestStr, AccountDTO.class),file);
 	}
+	@GetMapping("/RegisterUser")
+	public String register(@RequestBody String requestStr ){
+		String jwt = jwtService.generateToken(requestStr);
+		String verification = "http://localhost:9006/Account/"+jwt;
+		AccountDTO accountDTO = gson.fromJson(requestStr,AccountDTO.class);
+		Mail mail = new Mail();
+		mail.setRecipient(accountDTO.getEmail());
+		mail.setMsgBody("<html><body style=\"text-align: center\"> <h1>Xác thực email</h1>"
+
+						+"<p>Xin chào "+accountDTO.getFullname()+":<p>"
+						+"<p>Chúc mừng bạn đã đăng ký thành công tài khoản  "+accountDTO.getEmail()+":<p>"
+						+"<p>Vui lòng hoàn tất thao tác cuối cùng để chúng tôi xác thực và bảo vệ tài khoản của bạn tốt hơn.<p>"
+						+"<a href="+verification+" style=\"background-color: #3498db; color: #fff; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 5px;\">Xác Thực Ngay</a>");
+		mail.setSubject("Xác thực email");
+
+		return accountProducer.send(ConstantCommon.EMAIL,gson.toJson(mail)).block();
+	}
+	@GetMapping("/JWTTOJSON/{JWT}")
+	public String JWTTOJSON(@PathVariable String JWT ){
+		return jwtService.decodeJwt(JWT);
+	}
+	
 	
 }

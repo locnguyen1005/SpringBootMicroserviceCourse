@@ -52,11 +52,11 @@ public class ProductController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(gson.fromJson(product, ProductDTO.class),file));
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<Mono<ProductDTO>> detailProduct(@PathVariable Long id){
+	public ResponseEntity<Mono<ProductClient>> detailProduct(@PathVariable Long id){
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.finđById(id));
 	}
 	@PutMapping("/Edit/{id}")
-	public ResponseEntity<Mono<ProductDTO>> edit(@PathVariable Long id ,@RequestParam(value = "data") String product , @RequestParam(value = "file") MultipartFile file){
+	public ResponseEntity<Mono<ProductDTO>> edit(@PathVariable Long id ,@RequestParam(value = "data" , required = false) String product , @RequestParam(value = "file" , required = false) MultipartFile file){
 		InputStream inputStream = ProductController.class.getClassLoader().getResourceAsStream(Constant.JSON_Product);
 		CommonValidate.jsonValidate(product, inputStream);
 		return ResponseEntity.status(HttpStatus.CREATED).body(productService.editproduct(id,gson.fromJson(product, ProductDTO.class),file));

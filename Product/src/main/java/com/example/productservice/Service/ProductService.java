@@ -11,9 +11,12 @@ import com.example.productservice.DTO.ProductDTO;
 import com.example.productservice.Entity.ProductEntity;
 import com.example.productservice.Repository.ProductRepository;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,6 +32,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Slf4j
+@EnableScheduling
 public class ProductService {
 	
 	@Autowired
@@ -72,8 +76,8 @@ public class ProductService {
 			return Mono.error(new CommonException("", "", HttpStatus.BAD_REQUEST));
 		}
 	}
-	public Mono<ProductDTO> finđById(Long productDTOID){
-		return productRepository.findById(productDTOID).map(ProductDTO -> modelMapper.map(ProductDTO, ProductDTO.class)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
+	public Mono<ProductClient> finđById(Long productDTOID){
+		return productRepository.findById(productDTOID).map(ProductDTO -> modelMapper.map(ProductDTO, ProductClient.class)).flatMap(lessionClient -> getvideoapi(lessionClient)).switchIfEmpty(Mono.error(new CommonException("Product00", "Products is empty", HttpStatus.BAD_REQUEST)));
 	}
 	
 	public Mono<ProductDTO> editproduct(Long id , ProductDTO productDTO , MultipartFile file){
@@ -81,7 +85,7 @@ public class ProductService {
 		productDTO2.setDescription(productDTO.getDescription());
 		productDTO2.setName(productDTO.getName());
 		productDTO2.setPrice(productDTO.getPrice());
-		if(file.isEmpty()) {
+		if(file == null) {
 			return Mono.just(productDTO2)
 					.map(productdto -> modelMapper.map(productdto, ProductEntity.class))
 					.flatMap(product -> productRepository.save(product))
@@ -121,4 +125,5 @@ public class ProductService {
         cal.add(Calendar.DAY_OF_YEAR,6);
         return amazonS3.generatePresignedUrl(bucketName,filePath,cal.getTime(),http).toString();
     }
+
 }

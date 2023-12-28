@@ -57,7 +57,7 @@ public class PaymentService {
 					.map(paymentEntity -> modelMapper.map(paymentEntity, PaymentDTO.class));
 		}
 	}
-	public Mono<PaymentDTO> findbyaccountid(Long accountid){
+	public Flux<PaymentDTO> findbyaccountid(Long accountid){
 		return paymentRepository.findByAccountid(accountid).map(PaymentDTO -> modelMapper.map(PaymentDTO, PaymentDTO.class));
 	}
 	public Mono<PaymentDTO> findbypaymentid(Long accountid){

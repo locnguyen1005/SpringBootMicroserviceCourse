@@ -112,6 +112,20 @@ public class JwtService {
 	                .parseClaimsJws(token)
 	                .getBody();
 	    }
+		public  String decodeJwt(String jwt) {
+		try {
+			Claims claims = Jwts.parser()
+					.setSigningKey(SECRET)
+					.parseClaimsJws(jwt)
+					.getBody();
+
+			// Trả về đối tượng JSON từ chuỗi JSON trong phần subject của JWT
+			return claims.getSubject();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	    private Boolean isTokenExpired(String token) {
 	        return extractExpiration(token).before(new Date());

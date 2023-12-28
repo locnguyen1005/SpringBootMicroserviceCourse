@@ -21,6 +21,8 @@
         <option value="$PROJECT_DIR$/Product/pom.xml" />
         <option value="$PROJECT_DIR$/Product_Account/pom.xml" />
         <option value="$PROJECT_DIR$/StreamingService/pom.xml" />
+        <option value="$PROJECT_DIR$/../JAVA/task-scheduler-springboot-master/pom.xml" />
+        <option value="$PROJECT_DIR$/ProductStream/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

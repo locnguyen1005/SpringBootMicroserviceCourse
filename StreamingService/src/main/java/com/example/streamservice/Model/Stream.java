@@ -23,7 +23,7 @@ public class Stream {
     private Long accountid;
 	private String title;
 	private String description;
-	private Long productId;
+	private String productId;
 	private String date;
 	private String videoapi;
 	private String secretkey;

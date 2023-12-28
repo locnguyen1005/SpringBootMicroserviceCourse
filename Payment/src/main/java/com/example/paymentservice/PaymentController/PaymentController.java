@@ -45,6 +45,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -67,9 +68,7 @@ public class PaymentController {
 	@GetMapping("/payment-callback")
 	public Mono<String> paymentCallback(@RequestParam Map<String, String> queryParams, HttpServletResponse response)
 			throws IOException {
-
 		String vnp_ResponseCode = queryParams.get("vnp_ResponseCode");
-
 		String registerServiceId = queryParams.get("registerServiceId");
 		PaymentDTO paymentEntity = new PaymentDTO();
 		log.info(queryParams.get("account"));
@@ -98,18 +97,17 @@ public class PaymentController {
 		Lession_Account lession_Account = new Lession_Account();
 		lession_Account.setAccountId(Long.parseLong(queryParams.get("account")));
 		lession_Account.setProductid(Long.parseLong(queryParams.get("productID")));
-		
 		//tạo người đã đăng ký khóa học
 		AccountRegister accountRegisterCommon = new AccountRegister();
 		accountRegisterCommon.setAccountId(Long.parseLong(queryParams.get("account")));
 		accountRegisterCommon.setProductId(Long.parseLong(queryParams.get("productID")));
-
 		// tạo email
 		Mail mailsend = new Mail();
 		mailsend.setRecipient(account.block().getEmail());
-		mailsend.setMsgBody("<html><body><h1>Bạn đã đặt hàng thành công</h1></body></html>" 
+		mailsend.setMsgBody("<html><body style=\"text-align: center\"><h1>Bạn đã đặt hàng thành công</h1>"
 							+"<p>Tên khóa học của bạn là: <strong>"+ product.block().getName()+"</strong></p>"
-							+"<p>Giá tiền: <strong>"+ product.block().getPrice()+"</strong></p>");
+							+"<p>Giá tiền: <strong>"+ product.block().getPrice()+"</strong></p>"
+							+ "<img src=\"" + product.block().getApiimage() + "\" alt=\"" + product.block().getApiimage() + "\">" +"</body></html>");
 		mailsend.setSubject("Đăng ký khóa học thành công");
 		// Tạo quiz cho người đăng ký
 		Answer answer = new Answer();
@@ -120,7 +118,7 @@ public class PaymentController {
 		if (paymentEntity != null && !paymentEntity.equals("")) {
 			if ("00".equals(vnp_ResponseCode)) {
 				// tạo quizz khi đăng ký thành công
-				
+				Mono<PaymentDTO> payment = service.creatPayment(paymentEntity);
 				Mono<Answer> resultQuiz = webBuilder.build().post().uri("http://localhost:9000/Answer/Create")
 						.body(BodyInserters.fromValue(answer))
 						.retrieve()
@@ -130,21 +128,18 @@ public class PaymentController {
 						.uri("http://localhost:9000/ProductAccount/Post")
 						.body(BodyInserters.fromValue(accountRegisterCommon)).retrieve()
 						.bodyToMono(AccountRegister.class);
-
-	
-				Mono<PaymentDTO> payment = service.creatPayment(paymentEntity);
-
 				log.info(payment.block().toString());
 				log.info(resultAccountRegister.block().toString());
 				log.info(resultQuiz.block().toString());
 				String status = paymentProducer.send(ConstantCommon.EMAIL, gson.toJson(mailsend)).block();
 				String status1 = paymentProducer.send(ConstantCommon.LESSION_ACCOUNT, gson.toJson(lession_Account)).block();
 				String status2 = paymentProducer.send(ConstantCommon.ACCOUNT, gson.toJson(product)).block();
+
 				response.sendRedirect("http://localhost:3006/paymentsuccess");
 			} else {
 				// Giao dịch thất bại
 				// Thực hiện các xử lý cần thiết, ví dụ: không cập nhật CSDL\
-				response.sendRedirect("http://localhost:4200/payment-failed");
+				response.sendRedirect("http://localhost:3006/payment-failed");
 
 			}
 		}
@@ -227,7 +222,6 @@ public class PaymentController {
 		String vnp_SecureHash = PaymentConfig.hmacSHA512(PaymentConfig.secretKey, hashData.toString());
 		queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
 		String paymentUrl = PaymentConfig.vnp_PayUrl + "?" + queryUrl;
-
 		return paymentUrl;
 	}
 
@@ -248,12 +242,15 @@ public class PaymentController {
 	}
 
 	@GetMapping("/findbyaccountid/{accountid}")
-	public Mono<PaymentDTO> findbyaccountid(@PathVariable Long accountid){
+	public Flux<PaymentDTO> findbyaccountid(@PathVariable Long accountid){
 		return service.findbyaccountid(accountid);
 	}
 	@GetMapping("/findbypaymenttid/{paymentid}")
 	public Mono<PaymentDTO> findbyid(@PathVariable Long paymentid){
 		return service.findbypaymentid(paymentid);
 	}
-
+	@GetMapping("/GetAll")
+	public Flux<PaymentDTO> findAll(){
+		return service.getAllProduct();
+	}
 }

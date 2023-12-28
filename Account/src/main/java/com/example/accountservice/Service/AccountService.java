@@ -196,6 +196,10 @@ public class AccountService {
 	        accountEntity.setAvaterimage(fileName);
 	        return accountRepository.save(accountEntity);
 	 	}
-		
+	}
+	public Mono<AccountEntity> accountTeachTransferMoney(Long accountid , Long balance){
+		AccountEntity accountEntity =  accountRepository.findById(accountid).block();
+		accountEntity.setBalance(accountEntity.getBalance()+balance);
+		return accountRepository.save(accountEntity);
 	}
 }
