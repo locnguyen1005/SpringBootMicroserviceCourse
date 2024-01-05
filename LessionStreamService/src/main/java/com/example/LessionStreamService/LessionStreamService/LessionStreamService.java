@@ -25,5 +25,7 @@ public class LessionStreamService {
         String status = lessionStreamProducer.send(ConstantCommon.LESSION_STREAM , gson.toJson(lessionStream)).block();
         return lessionStreamRepository.save(lessionStream);
     }
-
+    public Mono<LessionStream> getLessionbyid(String id){
+        return  lessionStreamRepository.findById(id);
+    }
 }

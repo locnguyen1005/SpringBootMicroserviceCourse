@@ -2,6 +2,7 @@ package com.example.streamservice.Controller;
 
 import java.io.IOException;
 
+import com.example.streamservice.DTO.StreamDTO;
 import com.example.streamservice.Model.CommentStream;
 import com.example.streamservice.Model.Stream;
 import com.example.streamservice.StreamService.StreamService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -65,8 +67,13 @@ public class StreamController {
     }
 	
 	@GetMapping("/GetLessionStream/{lessionid}")
-	public Mono<Stream> getLessionStream(@PathVariable Long lessionid){
+	public Mono<StreamDTO> getLessionStream(@PathVariable String lessionid){
 		
-		return null;
+		return streamService.getbyid(lessionid);
 	}
+    @GetMapping("/GetAll/LessionStream")
+    public Flux<StreamDTO> getAllLessionStream(){
+
+        return streamService.getall();
+    }
 }

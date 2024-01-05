@@ -6705,3 +6705,21 @@
 2024/01/01 20:21:27 [info] 23252#1748: *3 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
 2024/01/01 20:23:27 [info] 23252#1748: *4 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
 2024/01/01 20:23:27 [info] 23252#1748: *5 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2024/01/05 21:02:28 [notice] 5996#2516: using the "select" event method
+2024/01/05 21:02:28 [notice] 5996#2516: nginx/1.14.1
+2024/01/05 21:02:28 [info] 5996#2516: OS: 260200 build:9200, "", suite:100, type:1
+2024/01/05 21:02:28 [notice] 5996#2516: start worker processes
+2024/01/05 21:02:28 [notice] 5996#2516: start worker process 23328
+2024/01/05 21:02:28 [notice] 23328#20196: nginx/1.14.1
+2024/01/05 21:02:28 [info] 23328#20196: OS: 260200 build:9200, "", suite:100, type:1
+2024/01/05 21:02:28 [notice] 23328#20196: create thread 3724
+2024/01/05 21:02:28 [notice] 23328#20196: create thread 8504
+2024/01/05 21:02:28 [notice] 23328#20196: create thread 13780
+2024/01/05 21:05:35 [info] 23328#3724: *1 client connected '127.0.0.1'
+2024/01/05 21:05:35 [info] 23328#3724: *1 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:05:37 [info] 23328#3724: *1 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:05:37 [info] 23328#3724: *1 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:06:36 [info] 23328#3724: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:06:36 [info] 23328#3724: *1 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:06:36 [info] 23328#3724: *1 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:06:36 [info] 23328#3724: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935

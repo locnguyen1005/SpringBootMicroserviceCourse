@@ -11,6 +11,7 @@ import java.util.UUID;
 import com.example.streamservice.DTO.StreamDTO;
 import com.example.streamservice.Model.Stream;
 import com.example.streamservice.Repository.StreamingRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ import net.bramp.ffmpeg.FFmpegExecutor;
 
 import net.bramp.ffmpeg.builder.FFmpegBuilder;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -38,6 +40,8 @@ public class StreamService {
 	private AmazonS3 amazonS3;
 	@Value("${aws.s3.bucket}")
 	private String bucketName;
+	@Autowired
+	private ModelMapper mapper;
 	
 	private String currentKey;
     private LocalDateTime keyExpiration;
@@ -88,7 +92,7 @@ public class StreamService {
 	}
 
 	public Mono<Stream> createStream(Stream stream, String inputUrl, String outputFilePath) throws IOException {
-
+		log.info("Service "+ stream.toString());
 		String ffmpegPath = "D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe";
 		String command = "D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe -i http://localhost:8080/hls/"
 				+ stream.getSecretkey() + ".m3u8"
@@ -139,4 +143,15 @@ public class StreamService {
 			lessionClient.setVideoapi(generatePreSignedUrl(lessionClient.getVideoapi(),HttpMethod.GET));
 			return Mono.just(lessionClient);
 		}
+
+		public Flux<StreamDTO> getall() {
+			return streamingRepository.findAll().map(lessionEntity -> mapper.map(lessionEntity, StreamDTO.class))
+					.flatMap(lessionClient -> getvideoapi(lessionClient))
+					.switchIfEmpty(Mono.error(new Exception("Lession Empty")));
+		}
+	public Mono<StreamDTO> getbyid(String lessionid) {
+		return streamingRepository.findById(lessionid).map(lessionEntity -> mapper.map(lessionEntity, StreamDTO.class))
+				.flatMap(lessionClient -> getvideoapi(lessionClient))
+				.switchIfEmpty(Mono.error(new Exception("Lession Empty")));
+	}
 }

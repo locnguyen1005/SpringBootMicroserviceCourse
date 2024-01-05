@@ -55,7 +55,7 @@ spring:
             - Path=/Stream/**
 
         - id: ProductStream-Service
-          uri: http://localhost:8888/
+          uri: http://localhost:8887/
           predicates:
             - Path=/ProductStream/**
 
@@ -63,6 +63,11 @@ spring:
           uri: http://localhost:9001
           predicates:
             - Path=/lessionAccount/**
+
+        - id: LessionStream-Service
+          uri: http://localhost:8886
+          predicates:
+            - Path=/LessionStream/**
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:

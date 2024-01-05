@@ -25,6 +25,7 @@ import java.time.format.DateTimeFormatter;
 @RestController
 @Slf4j
 @RequestMapping("/ProductStream")
+@CrossOrigin(origins = "http://localhost:3006")
 public class ProductStreamController {
     @Autowired
     private ProductService productService;
