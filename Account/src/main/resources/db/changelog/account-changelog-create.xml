@@ -88,7 +88,7 @@
         </preConditions>
         <addColumn tableName="account">
             <column name="address" type="VARCHAR(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>
@@ -100,7 +100,7 @@
         </preConditions>
         <addColumn tableName="account">
             <column name="phonenumber" type="VARCHAR(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>
@@ -115,7 +115,7 @@
         </preConditions>
         <addColumn tableName="account">
             <column name="balance" type="BIGINT">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>

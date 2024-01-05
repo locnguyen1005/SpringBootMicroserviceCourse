@@ -25,5 +25,6 @@ public class ProductStream {
     private String dateStart;
     private String category;
     private String image;
+    private String enddate;
     private Long type;
 }

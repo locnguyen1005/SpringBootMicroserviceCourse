@@ -2,6 +2,7 @@ package com.example.accountservice.Entity;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.With;
 @Builder
 public class AccountEntity {
 	@Id
+	@Column("id")
 	private Long id;
 	private String password;
 	private String email;

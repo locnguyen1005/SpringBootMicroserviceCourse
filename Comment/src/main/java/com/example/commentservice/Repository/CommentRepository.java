@@ -9,4 +9,5 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface CommentRepository extends ReactiveMongoRepository<Comment, String>{
 	Flux<Comment> findByProductid(Long productid);
+	Flux<Comment> findByLessionid(Long lessionid);
 }

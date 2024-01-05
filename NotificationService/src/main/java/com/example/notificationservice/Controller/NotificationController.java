@@ -6,14 +6,13 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.notificationservice.Model.Notification;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Controller
 @RequestMapping("/api/notification")
@@ -32,5 +31,9 @@ public class NotificationController {
 	@GetMapping("/GetAll")
 	public Flux<Notification> getAllAnswer(){
 		return notificationService.getAllNotification();
+	}
+	@PostMapping("/create")
+	public Mono<Notification> create(@RequestBody Notification notification){
+		return notificationService.saveAnswer(notification);
 	}
 }

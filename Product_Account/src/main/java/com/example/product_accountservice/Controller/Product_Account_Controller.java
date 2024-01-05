@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.example.commonservice.Model.ProductStream;
+import com.example.product_accountservice.Model.Account_ProductStream;
 import com.example.product_accountservice.Service.Product_Account_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +53,26 @@ public class Product_Account_Controller {
                 .map(person -> new Account_Product(person.getId(),person.getAccountid() ,person.getName(), person.getDescription(), person.getCategory(), person.getImage(), personMap.get(person.getAccountid()).getEmail(), person.getPrice(),person.getApiimage() ,personMap.get(person.getAccountid()).getAvaterimage(), personMap.get(person.getAccountid()).getFullname()))
                 .collect(Collectors.toList());
 		return mergedDataList;
+	}
+
+	@GetMapping("/demoStream")
+	public List<Account_ProductStream> demoStream(){
+		Flux<ProductStream> resultProduct = webBuilder.build().get()
+				.uri("http://localhost:9000/ProductStream/getall")
+				.retrieve()
+				.bodyToFlux(ProductStream.class);
+		Flux<Account> resultAccount = webBuilder.build().get()
+				.uri("http://localhost:9006/Account/GetAll")
+				.retrieve()
+				.bodyToFlux(Account.class);
+
+		Map<Long, Account> personMap = resultAccount.toStream()
+				.collect(Collectors.toMap(Account::getId, account -> account));
+		//personMap.get(person.getAccountid()).getEmail()
+		List<Account_ProductStream> account_ProductStream = resultProduct.toStream()
+				.map(person -> new Account_ProductStream(person.getId(),person.getAccountid() ,person.getName(), person.getDescription(), person.getCategory(), person.getImage(), personMap.get(person.getAccountid()).getEmail(), person.getPrice() ,personMap.get(person.getAccountid()).getAvaterimage(), personMap.get(person.getAccountid()).getFullname()))
+				.collect(Collectors.toList());
+		return account_ProductStream;
 	}
 	@GetMapping("/demo/{productid}")
 	public List<Account_Product> getallProductId(@PathVariable Long productid){

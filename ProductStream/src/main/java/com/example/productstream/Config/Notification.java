@@ -29,10 +29,11 @@ public class Notification {
     private ProductStreamProducer productProducer;
     @Autowired
     private ProductService productRepository;
-    @Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(fixedRate = 60000)
     public void scheduleTaskWithFixedDelay() {
         Flux<ProductStreamDTO> productEntityFlux = productRepository.getAllProductTrue();
         int dateofweek = LocalDateTime.now().getDayOfWeek().getValue();
+        log.info("Notification Send");
         for (ProductStreamDTO element : productEntityFlux.toIterable()){
             for (Integer date : element.getDate()){
                 if(date == dateofweek){
@@ -40,9 +41,8 @@ public class Notification {
                     notification.setAccountid(element.getAccountid());
                     notification.setImage(element.getImage());
                     notification.setNotification("Hôm nay bạn có lịch dạy vào lúc "+element.getTime());
-                    productProducer.send(ConstantCommon.NOTIFICATION,gson.toJson(notification));
+                    String status1 = productProducer.send(ConstantCommon.NOTIFICATION,gson.toJson(notification)).block();
                 }
-
             }
         }
     }

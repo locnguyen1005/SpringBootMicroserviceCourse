@@ -18,5 +18,7 @@ public class CommentDTO {
 	private Long accountid;
 	private Long productid;
 	private String comment;
+	private Long lessionid;
 	private String image;
+	private String lessionstreamid;
 }

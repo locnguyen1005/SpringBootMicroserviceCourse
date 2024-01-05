@@ -73,37 +73,18 @@ public class AccountService {
 				.flatMap(accountEntity -> Mono.just(true))
 				.switchIfEmpty(Mono.just(Boolean.FALSE));
 	}
-	public Mono<AccountDTO> createAccount(AccountDTO accountDTO , MultipartFile file) throws IOException{
+	public Mono<AccountDTO> createAccount(AccountDTO accountDTO ) throws IOException{
 		if((checkDuplicate(accountDTO).block()).equals(Boolean.TRUE)) {
-			 return Mono.error(new com.example.commonservice.Common.CommonException(accountDTO.getEmail(), "Account duplicate", HttpStatus.BAD_REQUEST));
+			return Mono.error(new com.example.commonservice.Common.CommonException(accountDTO.getEmail(), "Account duplicate", HttpStatus.BAD_REQUEST));
 		}
 		else {
-			if(file.isEmpty()) {
-				accountDTO.setPassword(passwordEncoder.encode(accountDTO.getPassword()));
-				accountDTO.setRole("USER");
-				String resourcePath = "classpath:Static/Avatar.jpg";
-				Resource resource = resourceLoader.getResource(resourcePath);
-			    String	absolutePath = resource.getFile().getAbsolutePath();
-			    log.info(absolutePath);
-				File fileObj = new File(absolutePath);
-		        String fileName = System.currentTimeMillis() + "_" + file.getName();
-		        amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
-		        fileObj.delete();
-		        accountDTO.setAvaterimage(fileName);
-		        accountDTO.setBalance(0l);
-			}
-			else {
-				accountDTO.setPassword(passwordEncoder.encode(accountDTO.getPassword()));
-				accountDTO.setRole("USER");
-				File fileObj = convertMultiPartFileToFile(file);
-		        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-		        amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
-		        fileObj.delete();
-		        accountDTO.setAvaterimage(fileName);
-		        accountDTO.setAvaterimage(fileName);
-		        accountDTO.setBalance(0l);
-			}
-	        
+
+			accountDTO.setPassword(passwordEncoder.encode(accountDTO.getPassword()));
+			accountDTO.setRole("USER");
+			accountDTO.setAvaterimage("1703874564499_Avatar.jpg");
+			accountDTO.setBalance(0l);
+
+
 			return Mono.just(accountDTO)
 					.map(newAccountDTO -> mapper.map(newAccountDTO, AccountEntity.class))
 					.flatMap(account -> accountRepository.save(account))

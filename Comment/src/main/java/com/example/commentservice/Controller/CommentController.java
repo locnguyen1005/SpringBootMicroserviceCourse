@@ -35,6 +35,10 @@ public class CommentController {
 	public Flux<Comment> getAllAnswer(@PathVariable Long productid){
 		return commentService.getAllAnswerbyid(productid);
 	}
+	@GetMapping("/getall/{lessionid}")
+	public Flux<Comment> getAllAnswer1(@PathVariable Long lessionid){
+		return commentService.getAlllesionid(lessionid);
+	}
 	@PostMapping("/Create")
     public Mono<Comment> createQuiz(@RequestBody Comment answer) {
 		

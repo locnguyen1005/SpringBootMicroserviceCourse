@@ -56,8 +56,7 @@ public class StreamController {
     public Mono<Stream> createStream(@RequestBody Stream stream) {
         try {
             String inputUrl = "http://localhost:8080/hls/"+stream.getSecretkey()+".m3u8";
-            String outputFilePath = "D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\record\\"+stream.getSecretkey()+".mp4";
-            
+            String outputFilePath = "D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\record\\"+stream.getSecretkey()+".mp4";
             
             return streamService.createStream(stream , inputUrl , outputFilePath);
         } catch (IOException e) {

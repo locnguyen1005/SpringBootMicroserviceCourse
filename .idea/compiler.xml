@@ -19,6 +19,7 @@
         <module name="AnswerService" />
         <module name="Product_Account" />
         <module name="Payment" />
+        <module name="LessionStreamService" />
         <module name="task-schedular-spring-boot" />
         <module name="APIGateway" />
         <module name="EmailService" />
@@ -36,6 +37,7 @@
       <module name="CommonService" options="-parameters" />
       <module name="Discovery" options="-parameters" />
       <module name="EmailService" options="-parameters" />
+      <module name="LessionStreamService" options="-parameters" />
       <module name="NotificationService" options="-parameters" />
       <module name="Payment" options="-parameters" />
       <module name="Product" options="-parameters" />

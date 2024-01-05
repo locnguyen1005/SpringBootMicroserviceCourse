@@ -21,6 +21,7 @@ public class NotificationComsummer {
 	private NotificationService notificationService;
 	@KafkaListener(id = "Notification" , topics = ConstantCommon.NOTIFICATION)
     public void commsumerNotification(String notification) {
+		log.info(notification);
 		notificationService.saveAnswer(gson.fromJson(notification, Notification.class));
     };
 }

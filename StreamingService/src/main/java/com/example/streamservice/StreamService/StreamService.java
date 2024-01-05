@@ -89,19 +89,19 @@ public class StreamService {
 
 	public Mono<Stream> createStream(Stream stream, String inputUrl, String outputFilePath) throws IOException {
 
-		String ffmpegPath = "D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe";
-		String command = "D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe -i http://localhost:8080/hls/"
+		String ffmpegPath = "D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe";
+		String command = "D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe -i http://localhost:8080/hls/"
 				+ stream.getSecretkey() + ".m3u8"
 				+ " -c copy -f hls -hls_time 10 -hls_list_size 6 -hls_flags delete_segments D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\record\\"
 				+ stream.getSecretkey() + ".mp4";
-		FFmpeg ffmpeg = new FFmpeg("D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe");
+		FFmpeg ffmpeg = new FFmpeg("D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\ffmpeg.exe");
 		FFmpegBuilder job = ffmpeg.builder()
 		        .setInput("http://localhost:8080/hls/" + stream.getSecretkey() + ".m3u8")
-		        .addOutput("D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\record\\"+stream.getSecretkey()+".mp4")
+		        .addOutput("D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\record\\"+stream.getSecretkey()+".mp4")
 		        .done();
 		new FFmpegExecutor(ffmpeg).createJob(job).run();
 		
-		File livestreamFile = new File("D:\\SpringBootMicroservice-master\\ffmpeg-6.1-essentials_build\\bin\\record\\"+ stream.getSecretkey() + ".mp4");
+		File livestreamFile = new File("D:\\DACN\\ffmpeg-6.1-essentials_build\\bin\\record\\"+ stream.getSecretkey() + ".mp4");
 		String fileName = System.currentTimeMillis() + "_" + livestreamFile.getName();
 		amazonS3.putObject(new PutObjectRequest(bucketName, fileName, livestreamFile));
 		stream.setSecretkey(fileName);

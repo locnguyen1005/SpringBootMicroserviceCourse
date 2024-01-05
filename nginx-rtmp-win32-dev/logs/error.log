@@ -6600,3 +6600,108 @@
 2023/12/20 14:25:34 [info] 26240#24836: *5 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
 2023/12/20 14:25:34 [info] 26240#24836: *5 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
 2023/12/20 14:25:34 [info] 26240#24836: *5 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:09:17 [notice] 4584#23372: using the "select" event method
+2023/12/28 19:09:17 [notice] 4584#23372: nginx/1.14.1
+2023/12/28 19:09:17 [info] 4584#23372: OS: 260200 build:9200, "", suite:100, type:1
+2023/12/28 19:09:17 [notice] 4584#23372: start worker processes
+2023/12/28 19:09:17 [notice] 4584#23372: start worker process 23332
+2023/12/28 19:09:17 [notice] 23332#22168: nginx/1.14.1
+2023/12/28 19:09:17 [info] 23332#22168: OS: 260200 build:9200, "", suite:100, type:1
+2023/12/28 19:09:17 [notice] 23332#22168: create thread 9124
+2023/12/28 19:09:17 [notice] 23332#22168: create thread 26408
+2023/12/28 19:09:17 [notice] 23332#22168: create thread 22556
+2023/12/28 19:10:45 [error] 23332#9124: *1 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:10:47 [info] 23332#9124: *1 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:10:47 [info] 23332#9124: *2 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:11:20 [error] 23332#9124: *3 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:11:27 [info] 23332#9124: *3 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:11:27 [info] 23332#9124: *4 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:13:28 [info] 23332#9124: *5 client connected '127.0.0.1'
+2023/12/28 19:13:28 [info] 23332#9124: *5 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:13:30 [info] 23332#9124: *5 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:13:30 [info] 23332#9124: *5 publish: name='locnguyen' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:14:08 [info] 23332#9124: *7 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:14:08 [info] 23332#9124: *6 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:14:18 [info] 23332#9124: *8 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:14:18 [info] 23332#9124: *9 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:14:43 [info] 23332#9124: *11 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:14:43 [info] 23332#9124: *10 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:14:53 [info] 23332#9124: *12 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:14:53 [info] 23332#9124: *13 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:15:03 [info] 23332#9124: *14 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:15:03 [info] 23332#9124: *15 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:15:13 [info] 23332#9124: *17 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:15:13 [info] 23332#9124: *16 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:15:23 [info] 23332#9124: *18 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:15:23 [info] 23332#9124: *19 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:15:33 [info] 23332#9124: *20 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:15:33 [info] 23332#9124: *21 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:15:43 [info] 23332#9124: *22 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:15:43 [info] 23332#9124: *23 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:15:53 [info] 23332#9124: *24 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:15:53 [info] 23332#9124: *25 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:16:03 [info] 23332#9124: *26 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:16:03 [info] 23332#9124: *27 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:16:13 [info] 23332#9124: *29 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:16:13 [info] 23332#9124: *28 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:16:23 [info] 23332#9124: *30 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:16:23 [info] 23332#9124: *31 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:16:33 [info] 23332#9124: *32 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:16:33 [info] 23332#9124: *33 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:16:43 [info] 23332#9124: *35 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:16:43 [info] 23332#9124: *34 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:16:53 [info] 23332#9124: *36 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:16:53 [info] 23332#9124: *37 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:17:28 [info] 23332#9124: *5 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:17:28 [info] 23332#9124: *5 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:17:28 [info] 23332#9124: *5 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:17:28 [info] 23332#9124: *5 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:17:43 [error] 23332#9124: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:17:44 [info] 23332#9124: *40 client connected '127.0.0.1'
+2023/12/28 19:17:44 [info] 23332#9124: *40 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:17:46 [info] 23332#9124: *40 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:17:46 [info] 23332#9124: *40 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:18:01 [info] 23332#9124: *39 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2023/12/28 19:18:14 [info] 23332#9124: *40 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:18:14 [info] 23332#9124: *40 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:18:14 [info] 23332#9124: *40 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:18:14 [info] 23332#9124: *40 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:20:21 [info] 23332#9124: *45 client connected '127.0.0.1'
+2023/12/28 19:20:21 [info] 23332#9124: *45 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:20:21 [info] 23332#9124: *42 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:20:21 [info] 23332#9124: *43 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:20:21 [info] 23332#9124: *44 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:20:22 [info] 23332#9124: *45 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:20:22 [info] 23332#9124: *45 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:21:03 [info] 23332#9124: *45 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:21:03 [info] 23332#9124: *45 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:21:03 [info] 23332#9124: *45 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:21:03 [info] 23332#9124: *45 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2023/12/28 19:21:08 [info] 23332#9124: *47 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:21:08 [info] 23332#9124: *48 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:21:08 [info] 23332#9124: *49 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:21:57 [info] 23332#9124: *51 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:21:57 [info] 23332#9124: *52 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:21:57 [info] 23332#9124: *53 client 127.0.0.1 closed keepalive connection
+2023/12/28 19:25:20 [error] 23332#9124: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:25:23 [error] 23332#9124: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:25:28 [error] 23332#9124: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:25:37 [error] 23332#9124: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2023/12/28 19:25:54 [error] 23332#9124: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2024/01/01 20:19:30 [notice] 9612#22180: using the "select" event method
+2024/01/01 20:19:30 [notice] 9612#22180: nginx/1.14.1
+2024/01/01 20:19:30 [info] 9612#22180: OS: 260200 build:9200, "", suite:100, type:1
+2024/01/01 20:19:30 [notice] 9612#22180: start worker processes
+2024/01/01 20:19:30 [notice] 9612#22180: start worker process 23252
+2024/01/01 20:19:30 [notice] 23252#19844: nginx/1.14.1
+2024/01/01 20:19:30 [info] 23252#19844: OS: 260200 build:9200, "", suite:100, type:1
+2024/01/01 20:19:30 [notice] 23252#19844: create thread 1748
+2024/01/01 20:19:30 [notice] 23252#19844: create thread 10008
+2024/01/01 20:19:30 [notice] 23252#19844: create thread 13304
+2024/01/01 20:20:27 [error] 23252#1748: *1 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2024/01/01 20:20:27 [info] 23252#1748: *1 client 127.0.0.1 closed keepalive connection
+2024/01/01 20:20:27 [error] 23252#1748: *2 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:3006/"
+2024/01/01 20:20:27 [info] 23252#1748: *2 client 127.0.0.1 closed keepalive connection
+2024/01/01 20:21:27 [info] 23252#1748: *3 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2024/01/01 20:23:27 [info] 23252#1748: *4 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2024/01/01 20:23:27 [info] 23252#1748: *5 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080

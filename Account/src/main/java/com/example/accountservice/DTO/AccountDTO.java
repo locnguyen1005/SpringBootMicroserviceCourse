@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class AccountDTO {
-	private long id;
+	private Long id;
 	private String password;
 	private String email;
 	private String fullname;

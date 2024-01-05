@@ -1,6 +1,5 @@
 package com.example.paymentservice.PaymentService;
 
-import com.example.commonservice.Model.Account;
 import com.example.commonservice.Model.Product;
 import com.example.paymentservice.PaymentDTO.PaymentDTO;
 import com.example.paymentservice.PaymentEntity.PaymentEntity;
@@ -17,7 +16,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.HashMap;
+
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -25,15 +24,17 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PaymentService {
 
-	private PaymentRepository paymentRepository;
-	private ModelMapper modelMapper;
+	private final PaymentRepository paymentRepository;
+	private final ModelMapper modelMapper;
+	private final WebClient.Builder webBuilder;
+
 	@Autowired
-	private WebClient.Builder webBuilder;
-	@Autowired
-	public PaymentService(PaymentRepository paymentRepository, ModelMapper modelMapper) {
+	public PaymentService(PaymentRepository paymentRepository, ModelMapper modelMapper, WebClient.Builder webBuilder) {
 		this.paymentRepository = paymentRepository;
 		this.modelMapper = modelMapper;
+		this.webBuilder = webBuilder;
 	}
+
 
 	public Flux<PaymentDTO> getAllProduct(){
 		return paymentRepository.findAll().map(PaymentDTO -> modelMapper.map(PaymentDTO, PaymentDTO.class)).switchIfEmpty(Mono.error(new CommonException("Payment 000", "PaymentDTO is empty", HttpStatus.BAD_REQUEST)));

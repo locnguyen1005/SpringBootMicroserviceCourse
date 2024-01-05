@@ -38,7 +38,7 @@
         </preConditions>
         <addColumn tableName="payment">
             <column name="productid" type="BIGINT">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>
@@ -66,5 +66,16 @@
             </column>
         </addColumn>
     </changeSet>
-  
+    <changeSet id="table-payment-add-column-productstreamid" author="payment" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="column productstreamid already exists in table payment">
+            <not>
+                <columnExists  tableName="payment" columnName="productstreamid" />
+            </not>
+        </preConditions>
+        <addColumn tableName="payment">
+            <column name="productstreamid" type="NVARCHAR(255)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

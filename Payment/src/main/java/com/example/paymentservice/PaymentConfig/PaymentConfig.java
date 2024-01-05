@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class PaymentConfig {
 	public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
     public static String vnp_ReturnUrl = "http://localhost:9002/api/v1/payment-callback";
+    public static String vnp_ReturnUrl_productstream = "http://localhost:9002/api/v1/payment-callback-productstream";
     public static String vnp_TmnCode = "ZHW5NV8O";
     public static String secretKey = "PCNNMNNPTRMXYSNMNLNHMOPULONHLAIE";
     public static String vnp_ApiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";

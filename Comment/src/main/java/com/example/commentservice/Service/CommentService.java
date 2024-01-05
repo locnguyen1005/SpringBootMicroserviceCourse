@@ -25,4 +25,7 @@ public class CommentService {
 	public Flux<Comment> getAllAnswerbyid(Long productId){
 		return  commentRepository.findByProductid(productId);
 	}
+	public Flux<Comment> getAlllesionid(Long productId){
+		return  commentRepository.findByLessionid(productId);
+	}
 }
