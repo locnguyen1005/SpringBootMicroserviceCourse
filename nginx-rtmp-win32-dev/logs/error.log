@@ -6723,3 +6723,82 @@
 2024/01/05 21:06:36 [info] 23328#3724: *1 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
 2024/01/05 21:06:36 [info] 23328#3724: *1 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
 2024/01/05 21:06:36 [info] 23328#3724: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:07:30 [info] 23328#3724: *3 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:07:30 [info] 23328#3724: *5 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:07:48 [info] 23328#3724: *6 client connected '127.0.0.1'
+2024/01/05 21:07:48 [info] 23328#3724: *6 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:07:49 [info] 23328#3724: *6 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:07:49 [info] 23328#3724: *6 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:08:22 [info] 23328#3724: *6 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:08:22 [info] 23328#3724: *6 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:08:22 [info] 23328#3724: *6 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:08:22 [info] 23328#3724: *6 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:09:12 [info] 23328#3724: *8 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:09:12 [info] 23328#3724: *9 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:09:12 [info] 23328#3724: *10 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:12:31 [info] 23328#3724: *12 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:12:31 [info] 23328#3724: *13 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:12:31 [info] 23328#3724: *14 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:13:14 [error] 23328#3724: *18 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:13:14 [info] 23328#3724: *18 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:13:14 [error] 23328#3724: *19 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:13:14 [info] 23328#3724: *19 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:13:14 [error] 23328#3724: *20 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:13:14 [info] 23328#3724: *20 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:13:15 [info] 23328#3724: *16 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:13:15 [info] 23328#3724: *17 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:13:59 [error] 23328#3724: *21 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:00 [error] 23328#3724: *22 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:00 [error] 23328#3724: *23 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:01 [error] 23328#3724: *24 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:01 [error] 23328#3724: *25 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:02 [error] 23328#3724: *26 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:02 [error] 23328#3724: *27 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:03 [error] 23328#3724: *28 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:03 [error] 23328#3724: *29 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:04 [error] 23328#3724: *30 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:14:26 [info] 23328#3724: *31 client connected '127.0.0.1'
+2024/01/05 21:14:26 [info] 23328#3724: *31 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:14:28 [info] 23328#3724: *31 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:14:28 [info] 23328#3724: *31 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:15:11 [info] 23328#3724: *31 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:15:11 [info] 23328#3724: *31 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:15:11 [info] 23328#3724: *31 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:15:11 [info] 23328#3724: *31 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:16:00 [info] 23328#3724: *34 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:16:00 [info] 23328#3724: *33 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:16:00 [info] 23328#3724: *35 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:19:03 [error] 23328#3724: *36 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:03 [error] 23328#3724: *37 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:04 [error] 23328#3724: *38 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:04 [error] 23328#3724: *39 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:05 [error] 23328#3724: *40 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:05 [error] 23328#3724: *41 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:06 [error] 23328#3724: *42 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:06 [error] 23328#3724: *43 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:07 [error] 23328#3724: *44 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:07 [error] 23328#3724: *45 CreateFile() "D:\DACN\nginx-rtmp-win32-dev/temp/hls/locnguyen1.m3u8" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /hls/locnguyen1.m3u8 HTTP/1.1", host: "localhost:8080"
+2024/01/05 21:19:29 [info] 23328#3724: *46 client connected '127.0.0.1'
+2024/01/05 21:19:29 [info] 23328#3724: *46 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:19:31 [info] 23328#3724: *46 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:19:31 [info] 23328#3724: *46 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:20:46 [info] 23328#3724: *46 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:20:46 [info] 23328#3724: *46 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:20:46 [info] 23328#3724: *46 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:20:46 [info] 23328#3724: *46 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:21:39 [info] 23328#3724: *48 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:21:39 [info] 23328#3724: *50 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:22:32 [info] 23328#3724: *52 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:22:32 [info] 23328#3724: *53 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:22:32 [info] 23328#3724: *54 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:23:56 [info] 23328#3724: *55 client connected '127.0.0.1'
+2024/01/05 21:23:56 [info] 23328#3724: *55 connect: app='hls' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='http://localhost/hls' tc_url='http://localhost/hls' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:23:57 [info] 23328#3724: *55 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:23:57 [info] 23328#3724: *55 publish: name='locnguyen1' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:24:38 [info] 23328#3724: *55 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:24:38 [info] 23328#3724: *55 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:24:38 [info] 23328#3724: *55 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:24:38 [info] 23328#3724: *55 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2024/01/05 21:25:24 [info] 23328#3724: *59 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:25:24 [info] 23328#3724: *57 client 127.0.0.1 closed keepalive connection
+2024/01/05 21:25:24 [info] 23328#3724: *58 client 127.0.0.1 closed keepalive connection

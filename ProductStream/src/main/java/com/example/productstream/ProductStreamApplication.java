@@ -16,5 +16,11 @@ public class ProductStreamApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProductStreamApplication.class, args);
 	}
-
+	@Bean
+	public ModelMapper modelmapper() {
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration()
+				.setMatchingStrategy(MatchingStrategies.STRICT);
+		return modelMapper;
+	}
 }

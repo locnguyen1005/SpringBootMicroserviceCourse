@@ -26,7 +26,7 @@
         </preConditions>
         <addColumn tableName="AccountRegister">
             <column name="ProductId" type="BIGINT">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>
@@ -38,7 +38,19 @@
         </preConditions>
         <addColumn tableName="AccountRegister">
             <column name="AccountID" type="BIGINT">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="table-AccountRegister-add-column-productstreamid" author="AccountRegister" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="column productstreamid already exists in table AccountRegister">
+            <not>
+                <columnExists  tableName="AccountRegister" columnName="productstreamid" />
+            </not>
+        </preConditions>
+        <addColumn tableName="AccountRegister">
+            <column name="productstreamid" type="NVARCHAR(255)">
+                <constraints nullable="true" />
             </column>
         </addColumn>
     </changeSet>

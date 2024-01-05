@@ -156,6 +156,9 @@ public class PaymentController {
 //		if (service.checkDuplicate(paymentEntity).block()) {
 //			return Mono.error(new Exception("Tài Khoản đã đăng ký khóa học"));
 //		}
+		AccountRegister accountRegisterCommon = new AccountRegister();
+		accountRegisterCommon.setAccountId(Long.parseLong(queryParams.get("account")));
+		accountRegisterCommon.setProductstreamid(queryParams.get("productID"));
 		log.info(queryParams.get("account"));
 		log.info(queryParams.get("vnp_Amount"));
 		log.info(queryParams.get("productID"));
@@ -187,9 +190,12 @@ public class PaymentController {
 			if ("00".equals(vnp_ResponseCode)) {
 				// tạo quizz khi đăng ký thành công
 				Mono<PaymentDTO> payment = service.creatPayment(paymentEntity);
-
+				Mono<AccountRegister> resultAccountRegister = webBuilder.build().post()
+						.uri("http://localhost:9000/ProductAccount/Post")
+						.body(BodyInserters.fromValue(accountRegisterCommon)).retrieve()
+						.bodyToMono(AccountRegister.class);
 				log.info(payment.block().toString());
-
+				log.info(resultAccountRegister.block().toString());
 				String status = paymentProducer.send(ConstantCommon.EMAIL, gson.toJson(mailsend)).block();
 				String status2 = paymentProducer.send(ConstantCommon.ACCOUNT, gson.toJson(product)).block();
 				response.sendRedirect("http://localhost:3006/paymentsuccess");

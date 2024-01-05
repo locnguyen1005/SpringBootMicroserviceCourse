@@ -12,4 +12,5 @@ public class AccountRegister {
 	private Long id;
 	private Long productId;
 	private Long accountId;
+	private String productstreamid;
 }

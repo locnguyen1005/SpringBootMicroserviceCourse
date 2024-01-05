@@ -19,5 +19,8 @@ public class AccountRegister {
 	private long productId;
 	@Column("AccountID")
 	private long accountId;
+	@Column("productstreamid")
+	private String productstreamid;
+
 	
 }
